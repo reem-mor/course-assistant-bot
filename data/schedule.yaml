@@ -1,0 +1,45 @@
+# Oz VeRuach — Cohort 1 schedule, source of truth (Asia/Jerusalem).
+# Seeded from the course site (Appendix B). The worker's weekly refresh job (Phase 5)
+# diffs the live site against this file and proposes changes to admins — it never
+# silently overwrites manual overrides.
+course:
+  name: "Oz VeRuach — Cohort 1"
+  start: "2026-04-26"
+  end: "2026-07-30"
+  timezone: "Asia/Jerusalem"
+sessions:
+  - {week: 1,  date: "2026-04-26", day: Sun, time: "09:00-15:00", title: "Course opening / פתיחת קורס", instructor: "—",   type: milestone}
+  - {week: 1,  date: "2026-04-29", day: Wed, time: "09:00-15:15", title: "AI engineering introduction and Python basics", instructor: "Alex", type: technical}
+  - {week: 1,  date: "2026-04-30", day: Thu, time: "09:00-15:15", title: "Python basics, Git version control basics", instructor: "Alex", type: technical}
+  - {week: 2,  date: "2026-05-06", day: Wed, time: "09:00-15:15", title: "Intro to AI", instructor: "Sagy", type: technical}
+  - {week: 2,  date: "2026-05-07", day: Thu, time: "09:00-15:15", title: "Python for data engineering", instructor: "Alex", type: technical}
+  - {week: 3,  date: "2026-05-13", day: Wed, time: "09:00-15:15", title: "Python for data engineering", instructor: "Alex", type: technical}
+  - {week: 3,  date: "2026-05-14", day: Thu, time: "09:00-15:15", title: "Vibe coding - Open Claw", instructor: "Alex", type: technical}
+  - {week: 4,  date: "2026-05-17", day: Sun, time: "10:00-15:00", title: "Vibe Coding - Cursor", instructor: "Alex", type: technical}
+  - {week: 4,  date: "2026-05-20", day: Wed, time: "09:00-15:15", title: "RAG architecture, Web framework introduction", instructor: "Alex", type: technical}
+  - {week: 4,  date: "2026-05-21", day: Thu, time: "09:00-15:15", title: "Shavuot eve / ערב שבועות", instructor: "—", type: holiday}
+  - {week: 5,  date: "2026-05-27", day: Wed, time: "09:00-15:15", title: "AWS, Docker and deployment process introduction", instructor: "Alex", type: technical}
+  - {week: 5,  date: "2026-05-28", day: Thu, time: "09:00-15:15", title: "MCP protocol", instructor: "Alex", type: technical}
+  - {week: 6,  date: "2026-06-03", day: Wed, time: "09:00-15:15", title: "AWS bedrock, and AI services", instructor: "Alex", type: technical}
+  - {week: 6,  date: "2026-06-04", day: Thu, time: "09:00-15:15", title: "Agents security, Guardrails, Agentic flow introduction", instructor: "Alex", type: technical}
+  - {week: 7,  date: "2026-06-07", day: Sun, time: "09:00-15:00", title: "Presentation prep / הכנה להצגה בפני קהל", instructor: "Bar", type: milestone}
+  - {week: 7,  date: "2026-06-10", day: Wed, time: "09:00-15:15", title: "Mid project presentation", instructor: "Alex", type: milestone}
+  - {week: 7,  date: "2026-06-11", day: Thu, time: "09:00-15:15", title: "N8N introduction", instructor: "Alex", type: technical}
+  - {week: 8,  date: "2026-06-14", day: Sun, time: "09:00-15:00", title: "Alon Arbiv - HiBob + Alex (9-11:30) + technical interviews workshop", instructor: "Alon Arbiv / Alex", type: workshop}
+  - {week: 8,  date: "2026-06-17", day: Wed, time: "09:00-15:15", title: "N8N deep dive", instructor: "Alex", type: technical}
+  - {week: 8,  date: "2026-06-18", day: Thu, time: "09:00-15:15", title: "Multi Agents, LangChain intro", instructor: "Alex", type: technical}
+  - {week: 9,  date: "2026-06-21", day: Sun, time: "09:00-15:00", title: "Interview prep / הכנה לראיונות", instructor: "Bar", type: workshop}
+  - {week: 9,  date: "2026-06-24", day: Wed, time: "09:00-15:15", title: "LangChain and LangGraph deep dive", instructor: "Alex", type: technical}
+  - {week: 9,  date: "2026-06-25", day: Thu, time: "09:00-15:15", title: "LangChain and LangGraph deep dive", instructor: "Alex", type: technical}
+  - {week: 10, date: "2026-07-01", day: Wed, time: "09:00-15:15", title: "Machine learning", instructor: "Alex", type: technical}
+  - {week: 10, date: "2026-07-02", day: Thu, time: "09:00-15:15", title: "Deep learning", instructor: "Alex", type: technical}
+  - {week: 11, date: "2026-07-05", day: Sun, time: "09:00-15:00", title: "Teamwork / עבודות צוות", instructor: "Bar", type: workshop}
+  - {week: 11, date: "2026-07-06", day: Mon, time: "09:00-15:00", title: "Local models handling, WebUI introduction", instructor: "—", type: technical}
+  - {week: 12, date: "2026-07-12", day: Sun, time: "09:00-15:00", title: "LinkedIn workshop / סדנת לינקדאין", instructor: "Ayana", type: workshop}
+  - {week: 12, date: "2026-07-15", day: Wed, time: "09:00-15:15", title: "Microsoft Copilot ecosystem", instructor: "Alex", type: technical}
+  - {week: 12, date: "2026-07-16", day: Thu, time: "09:00-15:15", title: "Microsoft Copilot ecosystem, Final project introduction", instructor: "Alex", type: milestone}
+  - {week: 13, date: "2026-07-19", day: Sun, time: "09:00-15:00", title: "Resource management, monitoring", instructor: "Alex", type: technical}
+  - {week: 13, date: "2026-07-22", day: Wed, time: "09:00-15:15", title: "Connecting the dots, retrospective and final project completion", instructor: "Alex", type: milestone}
+  - {week: 13, date: "2026-07-23", day: Thu, time: "09:00-15:15", title: "Connecting the dots, retrospective and final project completion", instructor: "Alex", type: milestone}
+  - {week: 14, date: "2026-07-26", day: Sun, time: "09:00-12:00", title: "Final presentation prep / הכנה להצגות סיום", instructor: "Alex", type: milestone}
+  - {week: 14, date: "2026-07-30", day: Thu, time: "09:00-12:00", title: "Final presentations / הצגות סיום", instructor: "Alex", type: milestone}

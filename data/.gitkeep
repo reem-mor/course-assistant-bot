@@ -1,0 +1,2 @@
+# Phase 1+ seeds (schedule.yaml, lesson_map.yaml, resources.yaml) and the local
+# SQLite DB live here. Kept in version control so the Docker build has a data dir.

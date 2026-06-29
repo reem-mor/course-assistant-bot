@@ -1,0 +1,24 @@
+# lesson_map (C1) — the single source of truth linking website sessions to Drive folders.
+# CONSERVATIVE seed (Appendix C): only stable anchors + recording folders that actually
+# exist are listed. session_links starts empty; the auto-suggester proposes links and an
+# admin confirms them via /map. The recording/presentation "Lesson N" numbers are Alex's,
+# NOT website session indices — there is no implicit 1:1 mapping.
+roots:
+  course_folder: "1GfQBI1btQSoyMLQ7z-_aE4xBnObsO2wO"
+  recordings_folder: "1bVrDPbVxsiSTyguWYFEVjovgYbDh9469"      # הקלטות
+  presentations_folder: "1JpwQBI8wi3J5OigcMbAG8YRKLLzXIf48"   # מצגות
+  hw_procedure_doc: "1LvHCMRXOfPqHvPC5Fk9LA8GWY9V195Fz"
+
+# Alex's recording folders that currently exist (others resolved dynamically at runtime):
+recordings_by_alex_label:
+  1: "14J5qQTx5pz_aMtiKDcz3ohgElp9A8tHd"    # part 1.mp4
+  2: "1Fr2dFnA4eOScaOww9n860pe0sOx6YgnT"    # part1.mp4, part 3.mp4
+  3: "1962um0GLot2fnzVjnNEqjE1GuDjCIOVJ"    # part 1.mp4, part 3.mp4
+  7: "1HQv3mIQPqBXVgGWQN3XD2Yf3Tl26Dqy8"    # EMPTY
+  10: "1d8MlN5fDxvNrDeYV0W2YIj9hGkm5wPem"
+  11: "1WhDkf-5lMlgJyF5Di4hz7prXy6FlzRUv"   # EMPTY
+
+# website_session_date (YYYY-MM-DD) -> linked Drive folders. Fill via /map; starts empty.
+# Shape the auto-suggester fills and the admin confirms:
+#   "2026-04-29": { recording_alex_label: 1, presentation_alex_label: 1 }
+session_links: {}

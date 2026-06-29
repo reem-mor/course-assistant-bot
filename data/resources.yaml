@@ -1,0 +1,51 @@
+# Curated learning resources per major course topic (feature 6.3).
+# Starter set, admin-extendable. Keys are matched case-insensitively against the user's
+# topic plus the aliases list. Prefer official docs and high-quality sources.
+topics:
+  python:
+    aliases: ["python basics", "פייתון", "python for data engineering"]
+    resources:
+      - {title: "Official Python tutorial", url: "https://docs.python.org/3/tutorial/"}
+      - {title: "Real Python", url: "https://realpython.com/"}
+  git:
+    aliases: ["version control", "git basics", "גיט"]
+    resources:
+      - {title: "Pro Git book", url: "https://git-scm.com/book/en/v2"}
+      - {title: "GitHub docs", url: "https://docs.github.com/get-started"}
+  rag:
+    aliases: ["retrieval augmented generation", "vector search", "embeddings"]
+    resources:
+      - {title: "What is RAG (AWS)", url: "https://aws.amazon.com/what-is/retrieval-augmented-generation/"}
+      - {title: "OpenAI embeddings guide", url: "https://platform.openai.com/docs/guides/embeddings"}
+  docker:
+    aliases: ["containers", "docker compose", "דוקר"]
+    resources:
+      - {title: "Docker get started", url: "https://docs.docker.com/get-started/"}
+      - {title: "Docker Compose docs", url: "https://docs.docker.com/compose/"}
+  aws:
+    aliases: ["cloud", "deployment", "ec2", "bedrock"]
+    resources:
+      - {title: "AWS Bedrock docs", url: "https://docs.aws.amazon.com/bedrock/"}
+      - {title: "AWS EC2 docs", url: "https://docs.aws.amazon.com/ec2/"}
+  mcp:
+    aliases: ["model context protocol"]
+    resources:
+      - {title: "Model Context Protocol docs", url: "https://modelcontextprotocol.io/"}
+  n8n:
+    aliases: ["workflow automation", "agentic flow"]
+    resources:
+      - {title: "n8n documentation", url: "https://docs.n8n.io/"}
+  langchain:
+    aliases: ["langgraph", "agents", "multi agents", "multi-agent"]
+    resources:
+      - {title: "LangChain docs", url: "https://python.langchain.com/docs/introduction/"}
+      - {title: "LangGraph docs", url: "https://langchain-ai.github.io/langgraph/"}
+  ml:
+    aliases: ["machine learning", "deep learning", "ml", "dl"]
+    resources:
+      - {title: "scikit-learn user guide", url: "https://scikit-learn.org/stable/user_guide.html"}
+      - {title: "Deep Learning book", url: "https://www.deeplearningbook.org/"}
+  copilot:
+    aliases: ["microsoft copilot", "copilot ecosystem"]
+    resources:
+      - {title: "Microsoft Copilot docs", url: "https://learn.microsoft.com/copilot/"}

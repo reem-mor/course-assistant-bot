@@ -1,0 +1,37 @@
+# Single-process deployment (default): one `bot` service runs the Telegram handler AND the
+# scheduler jobs (Drive watcher, schedule refresh, nightly precompute) in one event loop —
+# ideal for a small always-on box. Postgres/Supabase is external and not provisioned here.
+#
+# To split into bot + worker for scale-out: set RUN_SCHEDULER_IN_BOT=false and uncomment
+# the `worker` service below.
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: oz-veruach-bot:latest
+    command: ["python", "-m", "app.main_bot"]
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"   # /healthz, /readyz, /metrics
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0) if urllib.request.urlopen('http://127.0.0.1:8080/healthz').status==200 else sys.exit(1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # Optional split mode (set RUN_SCHEDULER_IN_BOT=false to avoid duplicate jobs):
+  # worker:
+  #   image: oz-veruach-bot:latest
+  #   command: ["python", "-m", "app.main_worker"]
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - bot
+  #   ports:
+  #     - "8081:8081"
+  #   restart: unless-stopped

@@ -1,0 +1,109 @@
+[project]
+name = "oz-veruach-bot"
+version = "0.1.0"
+description = "Official Telegram assistant for the Oz VeRuach AI-Augmented Software Engineering course."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "Oz VeRuach Course Staff" }]
+
+# Phase 0 runtime deps only. Later phases add their own (LangGraph/LangChain,
+# google-api-python-client, openai, SQLAlchemy/Alembic, APScheduler, etc.).
+dependencies = [
+    "python-telegram-bot>=21.6,<22",
+    "pydantic>=2.9,<3",
+    "pydantic-settings>=2.5,<3",
+    "structlog>=24.4,<25",
+    "aiohttp>=3.10,<4",
+    "pyyaml>=6.0,<7",
+    "tzdata>=2024.1",
+    "google-api-python-client>=2.140,<3",
+    "google-auth>=2.34,<3",
+    "anthropic>=0.39,<1",
+    "openai>=1.50,<2",
+    "google-genai>=0.3,<2",
+    "cachetools>=5.5,<6",
+    "pypdf>=5.0,<6",
+    "python-docx>=1.1,<2",
+    "python-pptx>=1.0,<2",
+    "sqlalchemy[asyncio]>=2.0,<3",
+    "aiosqlite>=0.20,<1",
+    "asyncpg>=0.29,<1",
+    "apscheduler>=3.10,<4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3,<9",
+    "pytest-asyncio>=0.24,<0.25",
+    "pytest-cov>=5.0,<6",
+    "ruff>=0.6,<1",
+    "mypy>=1.11,<2",
+    "types-PyYAML>=6.0,<7",
+    "types-cachetools>=5.5,<6",
+    "alembic>=1.13,<2",
+]
+# Operator tooling: the one-time Google OAuth refresh-token helper.
+auth = [
+    "google-auth-oauthlib>=1.2,<2",
+]
+# Optional: headless-browser schedule re-scrape (needs `playwright install chromium`).
+scrape = [
+    "playwright>=1.47,<2",
+]
+
+[project.scripts]
+oz-bot = "app.main_bot:main"
+oz-worker = "app.main_worker:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = ["error::DeprecationWarning:app.*"]
+
+[tool.coverage.run]
+source = ["app"]
+branch = true
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["app", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC", "C4", "SIM", "RUF"]
+# This is a bilingual (Hebrew/English) bot; Hebrew letters legitimately trip the
+# ambiguous-unicode checks, so disable that rule family rather than littering noqa.
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.mypy]
+python_version = "3.12"
+packages = ["app"]
+strict = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = [
+    "telegram.*",
+    "googleapiclient.*",
+    "google.*",
+    "google_auth_oauthlib.*",
+    "anthropic.*",
+    "openai.*",
+    "pypdf.*",
+    "docx.*",
+    "pptx.*",
+    "apscheduler.*",
+    "playwright.*",
+]
+ignore_missing_imports = true

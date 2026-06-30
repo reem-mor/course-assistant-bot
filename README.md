@@ -1,8 +1,11 @@
-﻿> **Portfolio project** â€” bilingual Telegram course ops bot. Extracted from [amdocs-ai-course](https://github.com/reem-mor/amdocs-ai-course).
-# Oz VeRuach Course Assistant
+﻿> **Portfolio project** — bilingual Telegram course ops bot. Course archive: [amdocs-ai-course](https://github.com/reem-mor/amdocs-ai-course).
+
+# course-assistant-bot
+
+[![CI](https://github.com/reem-mor/course-assistant-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/reem-mor/course-assistant-bot/actions/workflows/ci.yml)
 
 The official Telegram assistant for the **Oz VeRuach** (עוז ורוח) AI-Augmented Software
-Engineering course (Amdocs Learning Center / Fursa, Cohort 1, Apr–Aug 2026).
+Engineering course (Amdocs Learning Center / Fursa).
 
 Production-grade, fully async Python 3.12 bot. Two long-running processes:
 
@@ -39,7 +42,7 @@ monitor. `RUN_SCHEDULER_IN_BOT=true` (default) enables this; set it to `false` a
 ## Quick start (uv)
 
 ```bash
-cd oz_veruach_bot
+cd course-assistant-bot
 cp .env.example .env          # then edit .env and set TELEGRAM_BOT_TOKEN
 uv sync --extra dev           # create venv + install runtime and dev deps
 uv run oz-bot                 # start the bot in long-polling mode
@@ -61,7 +64,7 @@ curl http://localhost:8081/healthz   # worker (HEALTH_PORT + 1)
 ## Quick start (venv fallback, no uv)
 
 ```bash
-cd oz_veruach_bot
+cd course-assistant-bot
 python3.12 -m venv .venv
 . .venv/bin/activate          # Windows: .venv\Scripts\Activate.ps1
 pip install -e ".[dev]"
@@ -144,7 +147,7 @@ you to paste into `.env`. Nothing is written to disk by the helper.
 ## Project layout
 
 ```
-oz_veruach_bot/
+course-assistant-bot/
   app/
     bot/          # PTB handlers + application factory
     graph/        # LangGraph orchestrator (Phase 3)
@@ -174,7 +177,7 @@ oz_veruach_bot/
 # On the box (Ubuntu): install uv + ffmpeg, clone, configure
 sudo apt-get update && sudo apt-get install -y ffmpeg
 curl -LsSf https://astral.sh/uv/install.sh | sh
-cd oz_veruach_bot && cp .env.example .env   # fill in secrets
+cd course-assistant-bot && cp .env.example .env   # fill in secrets
 uv sync --extra auth                         # + --extra scrape for schedule re-scrape
 uv run alembic upgrade head                  # if using Supabase Postgres
 ```
@@ -188,11 +191,11 @@ Description=Oz VeRuach Course Assistant
 After=network-online.target
 
 [Service]
-WorkingDirectory=/home/ubuntu/oz_veruach_bot
+WorkingDirectory=/home/ubuntu/course-assistant-bot
 ExecStart=/home/ubuntu/.local/bin/uv run oz-bot
 Restart=always
 RestartSec=5
-EnvironmentFile=/home/ubuntu/oz_veruach_bot/.env
+EnvironmentFile=/home/ubuntu/course-assistant-bot/.env
 
 [Install]
 WantedBy=multi-user.target
